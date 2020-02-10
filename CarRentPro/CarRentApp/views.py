@@ -9,3 +9,11 @@ def User_view(request):
     }
 
     return render(request, 'users.html', context=context)
+
+def Address_view(request):
+    addresses = Address.objects.all()
+    print(addresses)
+    context = {
+        'addresses': addresses
+    }
+    return render(request, 'addresses.html', context)
