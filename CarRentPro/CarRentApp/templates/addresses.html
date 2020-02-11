@@ -1,10 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Address {% endblock title %}
+
+
+{% block body %}
 <h1>All Addresses</h1>
 
 
 {% for address in addresses  %}
-    <h2> {{ address.street}}</h2>
-    <p> {{ address.bulding }}</p>
-    <p> {{ address.flat }}</p>
-    <p> {{ address.post_code }}</p>
-    <p> {{ address.city }} </p>
+<h2> {{ address.street}}</h2>
+<p> {{ address.bulding }}</p>
+<p> {{ address.flat }}</p>
+<p> {{ address.post_code }}</p>
+<p> {{ address.city }} </p>
 {% endfor %}
+
+{% endblock body %}

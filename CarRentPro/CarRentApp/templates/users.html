@@ -1,3 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Users {% endblock title %}
+
+
+{% block body %}
+
 <h1>All users</h1>
 
 
@@ -6,3 +14,6 @@
 <h3>{{ user.last_name }}</h3>
 <h4>{{ user.password }} </h4>
 {% endfor %}
+
+
+{% endblock body %}
