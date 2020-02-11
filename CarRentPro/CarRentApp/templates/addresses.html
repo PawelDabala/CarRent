@@ -5,15 +5,43 @@
 
 
 {% block body %}
-<h1>All Addresses</h1>
+<!-- <h1>All Addresses</h1> -->
 
 
-{% for address in addresses  %}
+<!-- {% for address in addresses  %}
 <h2> {{ address.street}}</h2>
 <p> {{ address.bulding }}</p>
 <p> {{ address.flat }}</p>
 <p> {{ address.post_code }}</p>
 <p> {{ address.city }} </p>
-{% endfor %}
+{% endfor %} -->
+
+
+<table>
+    <caption>All Addresses</caption>
+    <thead>
+        <tr>
+            <th>Street</th>
+            <th>Bulding</th>
+            <th>Flat</th>
+            <th>Post Code</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for address in addresses %}
+        <tr>
+            <td> {{ address.street}}</td>
+            <td> {{ address.bulding }}</td>
+            <td> {{ address.flat }}</td>
+            <td> {{ address.post_code }}</td>
+            <td> {{ address.city }} </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+</table>
 
 {% endblock body %}
