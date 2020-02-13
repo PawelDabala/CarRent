@@ -8,26 +8,30 @@
 
 <!-- <h1>All users</h1> -->
 <h5>All Users</h5>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Password</th>
-        </tr>
-    </thead>
-    <tbody>
+<form action="{% url 'user_add' %}" method="get">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Password</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        {% for user in users  %}
-        <tr>
-            <td>{{ user.name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.password }}</td>
-        </tr>
-        {% endfor %}
+            {% for user in users  %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.password }}</td>
+            </tr>
+            {% endfor %}
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+    <input type="submit" value="Add User">
+</form>
 
 
 {% endblock body %}

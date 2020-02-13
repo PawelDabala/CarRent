@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Add User {% endblock title %}
+
+
+{% block body %}
+<form action="#" method='post'>
+    {% csrf_token %}
+    <label for="user_name">name: </label>
+    <input type="text" id="user_name" name="name">
+    <br>
+    <label for="user_last_name">Last name:</label>
+    <input type="text" id="user_last_name" name="last_name">
+    <br>
+    <label for="user_password">Password:</label>
+    <input type="text" id="user_password" name="password">
+    <br>
+    <input type="submit" value="Add new">
+    <br>
+    <a href="{% url 'users' %}">Back to users</a>
+
+</form>
+
+{% endblock body %}
