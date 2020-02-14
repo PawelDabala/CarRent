@@ -6,30 +6,36 @@
 
 {% block body %}
 <h6>All Addresses</h6>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Street</th>
-            <th>Bulding</th>
-            <th>Flat</th>
-            <th>Post Code</th>
-            <th>City</th>
-        </tr>
-    </thead>
-    <tbody>
+<form action="{% url 'address' %}" method="get">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Street</th>
+                <th>Bulding</th>
+                <th>Flat</th>
+                <th>Post Code</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        {% for address in addresses %}
-        <tr>
-            <td> {{ address.street}}</td>
-            <td> {{ address.bulding }}</td>
-            <td> {{ address.flat }}</td>
-            <td> {{ address.post_code }}</td>
-            <td> {{ address.city }} </td>
-        </tr>
 
-        {% endfor %}
+            {% for address in addresses %}
+            <tr>
+                <td> {{ address.street}}</td>
+                <td> {{ address.bulding }}</td>
+                <td> {{ address.flat }}</td>
+                <td> {{ address.post_code }}</td>
+                <td> {{ address.city }} </td>
+            </tr>
 
-    </tbody>
-</table>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+    <input type="submit" value="Add">
+</form>
 
 {% endblock body %}
