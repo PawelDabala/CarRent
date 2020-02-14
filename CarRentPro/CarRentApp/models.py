@@ -30,4 +30,13 @@ class Address(models.Model):
         """Unicode representation of Address."""
         return self.street
 
-    
+
+class Maciek(models.Model):
+    """Model definition for Maciek."""
+
+    # TODO: Define fields here
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        """Unicode representation of Maciek."""
+        return self.name

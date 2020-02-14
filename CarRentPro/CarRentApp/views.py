@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import User, Address
+from django.shortcuts import render, redirect
+from .models import User, Address, Maciek
+from .forms import AddressForm, MaciekForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -33,3 +34,45 @@ def Address_view(request):
         'addresses': addresses
     }
     return render(request, 'addresses.html', context)
+
+
+def AddressSingle_view(request):
+    context = {
+        "form": AddressForm
+    }
+
+    return render(request, 'address.html', context)
+
+
+def AddressAdd_views(request):
+    myform = AddressForm(request.POST)
+    print(myform)
+
+    # if myform.is_valid():
+    myaddress = Address(street=myform.cleaned_data['street'],
+                        bulding=myform.cleaned_data['bulding'],
+                        flat=myform.cleaned_data['flat'],
+                        post_code=myform.cleaned_data['post_code'],
+                        city=myform.cleaned_data['city'])
+    myaddress.save()
+
+    return redirect('addresses')
+
+
+def Maciek_view(request):
+    context = {
+        "form": MaciekForm
+    }
+
+    return render(request, 'maciek.html', context)
+
+
+def MaciekAdd_view(request):
+    form = MaciekForm(request.POST)
+
+    if form.is_valid():
+        mymaciek = Maciek(name=form.cleaned_data['name'])
+
+        mymaciek.save()
+
+    return redirect('maciek')
