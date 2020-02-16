@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import User, Address, Maciek
-from .forms import AddressForm, MaciekForm
+from .forms import AddressForm, MaciekForm, CarForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -76,3 +76,21 @@ def MaciekAdd_view(request):
         mymaciek.save()
 
     return redirect('maciek')
+
+def Car_view(request):
+    context = {
+        'carform': CarForm
+    }
+    return render(request, 'car_add.html', context)
+
+def CarAdd_view(request):
+    mycarform = CarForm(request.POST)
+
+    if mycarform.is_valid():
+        mycarform.save()
+
+    return redirect('car')
+
+
+
+
