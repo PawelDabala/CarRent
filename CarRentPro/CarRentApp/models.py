@@ -40,3 +40,21 @@ class Maciek(models.Model):
     def __str__(self):
         """Unicode representation of Maciek."""
         return self.name
+
+class MODELNAME(models.Model):
+    """Model definition for MODELNAME."""
+
+
+    # TODO: Define fields here
+    marka = models.CharField(max_length=50)
+    model = models.CharField(max_length=50)
+    klasa = models.CharField(max_length=50)
+
+
+
+    def __str__(self):
+        
+        """Unicode representation of MODELNAME."""
+        return selfm.marka, self.model, self.klasa
+
+
