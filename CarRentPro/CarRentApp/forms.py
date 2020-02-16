@@ -1,6 +1,6 @@
 from django import forms
-from .models import Address, Maciek
 
+from .models import Address, Maciek, Car
 
 # class AddressForm(forms.Form):
 #     """AddressForm definition."""
@@ -44,3 +44,15 @@ class AddressForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'city'
     }))
+
+class CarForm(forms.ModelForm):
+    """Form definition for Car."""
+
+
+    class Meta:
+        """Meta definition for Carform."""
+
+        model = Car
+        fields = ['marka',
+                  'model',
+                  'klasa']

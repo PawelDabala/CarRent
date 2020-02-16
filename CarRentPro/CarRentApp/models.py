@@ -41,7 +41,7 @@ class Maciek(models.Model):
         """Unicode representation of Maciek."""
         return self.name
 
-class MODELNAME(models.Model):
+class Car(models.Model):
     """Model definition for MODELNAME."""
 
 
@@ -55,6 +55,6 @@ class MODELNAME(models.Model):
     def __str__(self):
         
         """Unicode representation of MODELNAME."""
-        return selfm.marka, self.model, self.klasa
+        return self.marka, self.model, self.klasa
 
 
